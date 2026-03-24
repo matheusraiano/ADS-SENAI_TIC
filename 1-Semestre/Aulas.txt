@@ -118,3 +118,46 @@ Aula-16/03/2026
                 sw mode trunk
                 exit
                 exit
+Aula-23/02/2026:
+    MINHAS ANOTAÇÕES:
+        do sh run --> comando que mostra toda a configuração
+        <cr> --> significa comand return, nao tem mais o que colocar
+        Roteador: --> trabalha na camada 3 do modelo OSI
+            Camada de rede:
+                IP's endereço de rede
+            Capaz de encaminhas os pacotes entre diversas redes
+            Também é chamado de gateway
+            Ele é o portão entre redes, para se conversarem, para que isso ocorra ela deve atravassar o portão
+            Comandos:
+                enable --> entra no modo root
+                conf t --> entra na config do terminal
+                int gigabitEthernet (porta) --> seleciona a porta giga e entra no config do terminal de if
+                ip address (ip da gateway) sub-mascara da rede --> seleciona o ip e sub-mascara atrelado a essa porta giga
+                no shutdown --> desfaz o shutdown
+        Roteamento:
+            Rota estática:
+                Configura manualmente a rota
+            Comands para roteador dhcp:
+                enable
+                conf t
+                int gigabitEthernet (porta)
+                ip address (ip da gateway) sub-mascara da rede
+                no shutdown
+                ip dhcp excluded-address 192.186.10.1(ip minimo excluido) 192.168.10.100(ip maximo excluido)
+                ip dhcp pool R1
+                default-router 192.168.10.1(ip padrao do roteador)
+                domain-name R1-TESTE
+                network 192.168.10.0 255.255.255.0
+            Comandos para roteador em roteador:
+                R1:
+                    interface gigabitEthernet 0/0/1
+                    ip address 40.0.0.1 255.255.255.252
+                    no shut
+                    exit
+                    ip route 172.16.10.0 255.255.255.0 40.0.0.2
+                R2:
+                    interface gigabitEthernet 0/0/1
+                    ip address 40.0.0.2 255.255.255.252
+                    no shut
+                    exit
+                    ip route 192.168.10.0 255.255.255.0 40.0.0.1
