@@ -161,3 +161,19 @@ Aula-23/02/2026:
                     no shut
                     exit
                     ip route 192.168.10.0 255.255.255.0 40.0.0.1
+Aula(30/03/2026):
+    https://dontpad.com/SENAITICON
+    Router on a stick(ROAS):
+        Inter Vlans Routing
+        Roteamento de diversas vlans por um roteador
+        protocolo: 802.1Q --> dot1q
+            responsável por tagging de vlans
+        para criar uma interface virtual no router: --> foi utilizado, pois nao cabe dois ip's numa mesma porta
+            enable
+            conf t
+            interface gigabitEthernet 0/0/0
+            no shut
+            exit
+            interface gigabitEthernet 0/0/0.'numero da virtual(por exemplo 10 ou 20)'
+            encapsulation dot1q 'id da vlan(10 ou 20 por exemplo)'
+            ip address 192.168.0.1 255.255.255.0
