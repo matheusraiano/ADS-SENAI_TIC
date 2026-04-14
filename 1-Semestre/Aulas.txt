@@ -177,3 +177,5 @@ Aula(30/03/2026):
             interface gigabitEthernet 0/0/0.'numero da virtual(por exemplo 10 ou 20)'
             encapsulation dot1q 'id da vlan(10 ou 20 por exemplo)'
             ip address 192.168.0.1 255.255.255.0
+Aula(13/04/2026):
+    
